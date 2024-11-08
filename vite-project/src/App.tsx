@@ -7,6 +7,7 @@ import React from "react";
 import Header from "./components/Header.tsx";
 import Board from "./pages/Board.tsx";
 import Details from "./pages/Details.tsx";
+import AddCompany from "./pages/AddCompany.tsx";
 const LazyContacts = React.lazy(() => import("./pages/Contact.tsx"));
 
 
@@ -25,6 +26,7 @@ function App() {
                             </React.Suspense>}/>
                         <Route path={ROUTES.board} element={<Board/>}
                         />
+                        <Route path={`${ROUTES.details}/${ROUTES.add}`} element={<AddCompany />} />
                         <Route path={`${ROUTES.details}/:id`} element={<Details />} />
                         <Route path={ROUTES.notFound} element={<NotFound/>}/>
                     </Routes>

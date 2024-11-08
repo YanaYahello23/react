@@ -4,4 +4,5 @@ export const ROUTES = {
     details: "/details",
     board: "/board",
     notFound: "*",
+    add: "/add"
 }

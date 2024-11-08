@@ -3,6 +3,7 @@ import {MOCK_DATA} from "../constants/data.ts";
 import Status from "../components/Status.tsx";
 import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../constants/router-contsnts.ts";
+import Button from "../components/Button.tsx";
 
 export default function Board() {
     const navigate = useNavigate();
@@ -12,10 +13,15 @@ export default function Board() {
         navigate(`${ROUTES.details}/${id}`);
     };
 
+    const addOrgHandler = () => {
+        navigate(`${ROUTES.details}/${ROUTES.add}`);
+    };
+
     return (
         <>
+            <Button onClick={addOrgHandler}/>
             <table
-                className={`${styles}, table-auto border-collapse border bg-gray-300`}
+                className={`${styles}, table-auto border-collapse border bg-gray-300 mt-2`}
                 >
                 <thead>
                 <tr>

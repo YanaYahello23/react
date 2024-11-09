@@ -1,14 +1,16 @@
 import Form from "../components/Form.tsx";
 import {AddForm, FieldData} from "../models/formModels.ts";
+import styles from "../css-modules/AddCompany.module.css";
+import {STATUSES} from "../constants/data.ts";
 
 export default function AddCompany() {
 
-    const addCompanyFormData: FieldData[] = [
+    const addCompanyFormData: FieldData<AddForm>[] = [
         {
             label: "Organization name",
             type: "text",
             name: "name",
-            placeholder: "",
+            placeholder: "Enter name",
             validations: {
                 required: true,
                 maxLength: 50,
@@ -19,7 +21,7 @@ export default function AddCompany() {
             label: "Organization description",
             type: "text",
             name: "description",
-            placeholder: "",
+            placeholder: "Enter description",
             validations: {
                 required: true,
                 maxLength: 150,
@@ -30,10 +32,11 @@ export default function AddCompany() {
             label: "Organization status",
             type: "select",
             name: "status",
-            placeholder: "",
+            placeholder: "Enter status",
             validations: {
                 required: true,
-            }
+            },
+            options: [...Object.values(STATUSES)]
         },
     ];
 
@@ -42,8 +45,8 @@ export default function AddCompany() {
     }
 
     return (
-        <>
-            <Form fieldsData={addCompanyFormData} onSubmit={handlerOnSubmit} buttonName={"Create an organization"}/>
-        </>
+        <div className={styles.mainContainer}>
+            <Form<AddForm> fieldsData={addCompanyFormData } onSubmit={handlerOnSubmit} buttonName={"Create an organization"}/>
+        </div>
     )
 }

@@ -14,14 +14,14 @@ export default function Board() {
     };
 
     const addOrgHandler = () => {
-        navigate(`${ROUTES.details}/${ROUTES.add}`);
+        navigate(`${ROUTES.details}${ROUTES.add}`);
     };
 
     return (
-        <>
+        <div className={styles.mainContainer}>
             <Button onClick={addOrgHandler}/>
             <table
-                className={`${styles}, table-auto border-collapse border bg-gray-300 mt-2`}
+                className={`${styles.table} rounded-3xl border-collapse border bg-gray-300 mt-2`}
                 >
                 <thead>
                 <tr>
@@ -46,6 +46,6 @@ export default function Board() {
                 ))}
                 </tbody>
             </table>
-</>
+</div>
 )
 }

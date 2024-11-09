@@ -15,7 +15,7 @@ export const MOCK_DATA = [
         id: 2,
         name: "Org 2",
         status: 2,
-        location: "company in Munich",
+        location: "Munich",
     },
     {
         id: 3,

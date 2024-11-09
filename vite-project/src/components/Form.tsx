@@ -1,5 +1,6 @@
 import {FormData} from "../models/formModels.ts";
 import {ChangeEvent, FormEvent, useState} from "react";
+import Button from "./Button.tsx";
 
 
 export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }: FormData<T>) {
@@ -15,7 +16,7 @@ export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onSubmit(formState); // Pass form data to the parent component
+        onSubmit(formState);
     };
 
     return (
@@ -26,13 +27,13 @@ export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }
                     case "email":
                     case "password":
                         return (
-                            <div key={field.label}>
-                                <label>{field.label}</label>
+                            <div key={field.label} className="mt-2">
+                                <label className="block">{field.label}</label>
                                 <input
+                                    className="rounded h-8 p-2 w-full"
                                     type={field.type}
                                     name={field.label}
                                     placeholder={field.placeholder}
-                                    value={formState[field.name] || ""}
                                     onChange={handleChange}
                                 />
                             </div>
@@ -40,8 +41,9 @@ export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }
                     case "checkbox":
                         return (
                             <div key={field.label}>
-                                <label>
+                                <label className="block text-blue-50">
                                     <input
+                                        className="rounded h-8 p-2"
                                         type="checkbox"
                                         name={field.name}
                                         checked={formState[field.name] || false}
@@ -53,11 +55,11 @@ export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }
                         );
                     case "select":
                         return (
-                            <div key={field.label}>
-                                <label>{field.label}</label>
+                            <div key={field.label} className="mt-2">
+                                <label className="block mr-2">{field.label}</label>
                                 <select
+                                    className="rounded h-10 w-full p-2"
                                     name={field.label}
-                                    value={formState[field.name] || ""}
                                     onChange={handleChange}
                                 >
                                     <option value="">Select an option</option>
@@ -73,7 +75,7 @@ export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }
                         return null;
                 }
             })}
-            <button type="submit">{buttonName}</button>
+            <Button text={buttonName} className="mt-2"/>
         </form>
     )
 }

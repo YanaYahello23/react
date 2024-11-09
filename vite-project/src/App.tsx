@@ -26,7 +26,7 @@ function App() {
                             </React.Suspense>}/>
                         <Route path={ROUTES.board} element={<Board/>}
                         />
-                        <Route path={`${ROUTES.details}/${ROUTES.add}`} element={<AddCompany />} />
+                        <Route path={`${ROUTES.details}${ROUTES.add}`} element={<AddCompany />} />
                         <Route path={`${ROUTES.details}/:id`} element={<Details />} />
                         <Route path={ROUTES.notFound} element={<NotFound/>}/>
                     </Routes>

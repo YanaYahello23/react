@@ -45,8 +45,8 @@ export default function Form <T extends {}>({ onSubmit, fieldsData, buttonName }
                                     <input
                                         className="rounded h-8 p-2"
                                         type="checkbox"
-                                        name={field.name}
-                                        checked={formState[field.name] || false}
+                                        name={String(field.name)}
+                                        checked={!!formState[field.name] || false}
                                         onChange={handleChange}
                                     />
                                     {field.label}

@@ -2,10 +2,10 @@ interface ButtonProps {
     onClick?: () => void;
     text?: string;
     className?: string;
-    type?: string;
+    type?: "reset" | "submit";
 }
 
-export default function Button({ onClick = null, text = "Add new organization", className = "", type = "submit" }: ButtonProps) {
+export default function Button({ onClick, text = "Add new organization", className = "", type = "submit" }: ButtonProps) {
     return (
         <button
             type={type}
